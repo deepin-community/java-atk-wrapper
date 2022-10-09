@@ -1,0 +1,3 @@
+usr/lib/*/jni/*.la
+usr/lib/*/jni/jvm/*/conf/accessibility.properties
+usr/lib/*/jni/jvm/*/lib/java-atk-wrapper.jar

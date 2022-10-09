@@ -1,0 +1,393 @@
+java-atk-wrapper (0.38.0-5) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 12 to 13.
+  * Update standards version to 4.5.1, no changes needed.
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on java-common.
+
+  [ Samuel Thibault ]
+  * libatk-wrapper-java.lintian-overrides: Drop lintian warning for jar name.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sat, 18 Sep 2021 18:34:13 +0200
+
+java-atk-wrapper (0.38.0-4) unstable; urgency=medium
+
+  * patches/dbus: Also detect at-spi through dbus.
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 26 Aug 2021 02:50:17 +0200
+
+java-atk-wrapper (0.38.0-3) unstable; urgency=medium
+
+  * patches/werror: Only enable -Werror in upstream development
+    (Closes: Bug#984069).
+  * control: Set Rules-Requires-Root to no.
+  * rules: Drop ddeb-migration rules, now useless
+
+ -- Samuel Thibault <sthibault@debian.org>  Sun, 15 Aug 2021 22:56:34 +0200
+
+java-atk-wrapper (0.38.0-2) unstable; urgency=medium
+
+  [ Samuel Thibault ]
+  * control: Update alioth list domain.
+  * not-installed: Note that we don't install .la files, and that we install
+    accessibility.properties and java-atk-wrapper.jar in a common place.
+  * rules: Fix passing hardening CPPFLAGS.
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database.
+  * Update standards version to 4.5.0, no changes needed.
+  * Use secure URI in Homepage field.
+
+ -- Samuel Thibault <sthibault@debian.org>  Fri, 01 Jan 2021 15:05:05 +0100
+
+java-atk-wrapper (0.38.0-1) unstable; urgency=medium
+
+  [ Samuel Thibault ]
+  * New upstream release.
+  * rules: Rely on pre-initialized dpkg-architecture variables.
+
+  [ Debian Janitor ]
+  * Use versioned copyright format URI.
+  * Bump debhelper from deprecated 7 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Submit (from ./configure),
+    Repository, Repository-Browse.
+  * Drop unnecessary dependency on dh-autoreconf.
+  * Update standards version to 4.4.1, no changes needed.
+
+ -- Samuel Thibault <sthibault@debian.org>  Fri, 06 Mar 2020 00:24:09 +0100
+
+java-atk-wrapper (0.37.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * watch: Generalize pattern.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sun, 13 Oct 2019 13:27:14 +0200
+
+java-atk-wrapper (0.36.0-1) unstable; urgency=medium
+
+  * New upstream release.
+    - patches/32bit: Upstreamed.
+    - patches/compact_visible_data_changed: Upstreamed.
+  * source/options: Remove compression option.
+  * copyright: Factorize.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sat, 07 Sep 2019 20:18:14 +0200
+
+java-atk-wrapper (0.35.0-3) unstable; urgency=medium
+
+  * patches/atk-dep: Just completely drop atk-adaptor version, current
+    releases of Debian have the set_context support.
+  * patches/compact_visible_data_changed: New patch to compact useless events
+    which overload us.
+  * control: Set Vcs-* to salsa.debian.org.
+  * control: Bump Standards-Version to 4.4.0 (no changes).
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 15 Aug 2019 11:58:24 +0200
+
+java-atk-wrapper (0.35.0-2) unstable; urgency=medium
+
+  * control: Drop libgtk-3-dev build-dep.
+  * 32bit: Fix build on 32bit systems.
+
+ -- Samuel Thibault <sthibault@debian.org>  Mon, 05 Aug 2019 13:47:13 +0200
+
+java-atk-wrapper (0.35.0-1) unstable; urgency=medium
+
+  * New upstream release (Closes: Bug#843706)
+    - patches/no-werror: Remove
+    - patches/check-thread: Removed.
+
+    - patches/netbeans: Merged.
+    - patches/main_context: Merged.
+    - patches/spurious_recursive_call: Merged.
+    - patches/hash-mutex: Merged.
+    - patches/fix-unexpected-threaded-call: Merged.
+    - patches/getAccessibleContextNull: Merged.
+    - patches/init: Merged.
+    - patches/getAccessibleStateSetNull: Merged.
+    - patches/thread-daemon: Merged.
+    - patches/warningfix: Merged.
+    - patches/jaw_ref: Merged.
+    - patches/iter: Merged.
+    - patches/child_add: Merged.
+    - patches/GC: Merged.
+    - patches/parameters: Merged.
+    - patches/coords: Merged.
+    - patches/remove_component_listener: Merged.
+    - patches/nojavah: Merged.
+    - patches/fix: Merged.
+
+    - patches/atk-deps: New patch to drop at-spi2-atk dep, which we already
+    fullfil.
+  * control: Bump Standards-Version to 4.2.0 (no changes).
+  * control: Remove libgtk2.0-dev build-dependency.
+  * patches/java-1.7: Avoid breaking java<9 compatibility.
+  * watch: Fix regexp.
+  * rules: Bump java support to 8.
+
+ -- Samuel Thibault <sthibault@debian.org>  Fri, 02 Aug 2019 19:50:24 +0200
+
+java-atk-wrapper (0.33.3-22) unstable; urgency=medium
+
+  * patches/remove_component_listener: Fix memory leak (Closes: Bug#926420)
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 04 Apr 2019 22:51:05 +0200
+
+java-atk-wrapper (0.33.3-21) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.1.4 (no changes).
+  * patches/nojavah: New patch to fix FTBFS (Closes: Bug#897454)
+
+ -- Samuel Thibault <sthibault@debian.org>  Wed, 02 May 2018 23:06:45 +0200
+
+java-atk-wrapper (0.33.3-20) unstable; urgency=medium
+
+  * debian/patches/GC: drop spurious println (Closes: Bug#891604)
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 27 Feb 2018 08:53:28 +0100
+
+java-atk-wrapper (0.33.3-19) unstable; urgency=medium
+
+  * debian/patches/parameters: Fix atk signal parameters mismatch.
+  * debian/patches/coords: Fix atk component coordinates.
+
+ -- Samuel Thibault <sthibault@debian.org>  Mon, 26 Feb 2018 00:16:36 +0100
+
+java-atk-wrapper (0.33.3-18) unstable; urgency=medium
+
+  * debian/patches/GC: new patch to fix memory leaks.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sun, 25 Feb 2018 23:04:45 +0100
+
+java-atk-wrapper (0.33.3-17) unstable; urgency=medium
+
+  * debian/patches/iter: Fix iterator initialization.
+  * debian/patches/child_add: Fix missing reference for children.
+    (Closes: Bug#837081)
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 20 Feb 2018 00:31:08 +0100
+
+java-atk-wrapper (0.33.3-16) unstable; urgency=medium
+
+  * debian/patches/warningfix: Yet another warning fix.
+  * debian/patches/jaw_ref: Make sure atk objects exist while processing
+    signals.  Hopefully fixes Bug#837081.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sat, 17 Feb 2018 18:39:47 +0100
+
+java-atk-wrapper (0.33.3-15) unstable; urgency=medium
+
+  * control: Lower default-jdk dependency to default-jdk-headless to avoid
+    dependency loop (headful java now depends on java accessibility).
+
+ -- Samuel Thibault <sthibault@debian.org>  Sat, 06 Jan 2018 14:41:44 +0100
+
+java-atk-wrapper (0.33.3-14) unstable; urgency=medium
+
+  [ Samuel Thibault ]
+  * control: Update maintainer mailing list.
+  * Use canonical anonscm vcs URL.
+  * control: Bump Standards-Version to 4.1.1 (no changes).
+
+  [ Helmut Grohne ]
+  * Fix FTCBFS: Annotate default-jdk dependency with :native. (Closes: #885129)
+
+ -- Samuel Thibault <sthibault@debian.org>  Fri, 05 Jan 2018 18:57:19 +0100
+
+java-atk-wrapper (0.33.3-13) unstable; urgency=medium
+
+  * patches/thread-daemon: Make JAW thread a daemon so that JVM termination does
+    not wait for its termination (Closes: #787955).
+
+ -- Samuel Thibault <sthibault@debian.org>  Sun, 11 Dec 2016 13:08:23 +0100
+
+java-atk-wrapper (0.33.3-12) unstable; urgency=medium
+
+  * patches/getAccessibleStateSetNull: Fix crash when getAccessibleStateSet
+    returns NULL (Closes: #838778).
+
+ -- Samuel Thibault <sthibault@debian.org>  Mon, 05 Dec 2016 01:45:28 +0100
+
+java-atk-wrapper (0.33.3-11) unstable; urgency=medium
+
+  * patches/check-thread: Advise users to report the warning.
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 08 Nov 2016 23:16:24 +0100
+
+java-atk-wrapper (0.33.3-10) unstable; urgency=medium
+
+  * patches/check-thread: Warn instead of crashing when accessing application
+    objects from the jaw thread (Closes: #838778).
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 08 Nov 2016 22:51:30 +0100
+
+java-atk-wrapper (0.33.3-9) unstable; urgency=medium
+
+  * patches/init: Do not set up hooks if the at-spi layer could not be
+    initialized.  Fixes systematic Java application crashes when the desktop
+    breaks the at-spi bus (Closes: #824226).
+
+ -- Samuel Thibault <sthibault@debian.org>  Mon, 29 Aug 2016 21:01:22 +0200
+
+java-atk-wrapper (0.33.3-8) unstable; urgency=medium
+
+  * control: Bump Standards-Version to 3.9.8 (no change)
+  * patches/getAccessibleContextNull: New patch to fix more crashes happening
+    in odd situations (Closes: #829293).
+
+ -- Samuel Thibault <sthibault@debian.org>  Sun, 03 Jul 2016 23:00:58 +0200
+
+java-atk-wrapper (0.33.3-7) unstable; urgency=medium
+
+  * rules: Use $(jvm_includes) from /usr/share/java/java_defaults.mk.
+    (Closes: #821468)
+  * control: Build-Depend on java-common >= 0.54 to get $(jvm_includes).
+  * patches/spurious_recursive_call: Drop spurious infinitely recursive call.
+  * patches/hash-mutex: Protect object hash table with a mutex.
+  * patches/fix-unexpected-threaded-call: Avoid calling application callbacks
+    from the atk glib loop (Closes: #820227)
+
+ -- Samuel Thibault <sthibault@debian.org>  Sun, 22 May 2016 17:42:20 +0200
+
+java-atk-wrapper (0.33.3-6) unstable; urgency=medium
+
+  * rules: Simplify strip rule.
+  * rules: Set ddeb-migration.
+  * control: Depend on debhelper 9.20150628 for ddeb-migration.
+  * control: Bump Standards-Version to 3.9.7 (no change).
+  * patches/main_context: New patch to make our glib loop use its own
+    main_context rather than using the default context (Closes: #809087).
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 25 Feb 2016 00:30:10 +0100
+
+java-atk-wrapper (0.33.3-5) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 13 Oct 2015 00:02:29 +0200
+
+java-atk-wrapper (0.33.3-4) experimental; urgency=medium
+
+  [ Alexandre Pereira Nunes ]
+  * Add libatk-wrapper-java-jni-dbg debugging package.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sun, 11 Oct 2015 12:58:40 +0200
+
+java-atk-wrapper (0.33.3-3) unstable; urgency=medium
+
+  [ Alexandre Pereira Nunes ]
+  * patches/netbeans: Complete patch.
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 08 Oct 2015 03:17:46 +0200
+
+java-atk-wrapper (0.33.3-2) unstable; urgency=medium
+
+  [ Alexandre Pereira Nunes ]
+  * patches/netbeans: Complete patch (Closes: #798924).
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 08 Oct 2015 00:24:59 +0200
+
+java-atk-wrapper (0.33.3-1) unstable; urgency=medium
+
+  * New upstream release.
+    - patches/gconf: Remove, merged upstream.
+    - control: bump build-depends to java 7, add gnome-common dependency.
+    - patches/no-werror: New patch to drop -Werror.
+  * patches/netbeans: Fix typo, thanks KiBi for spotting it.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sat, 12 Sep 2015 12:39:36 +0200
+
+java-atk-wrapper (0.33.0-5) unstable; urgency=high
+
+  * patches/netbeans: Make
+    Java_org_GNOME_Accessibility_AtkWrapper_componentAdded return immediately
+    if global_ac is NULL (Closes: #798273).
+
+ -- Samuel Thibault <sthibault@debian.org>  Mon, 07 Sep 2015 17:10:13 +0200
+
+java-atk-wrapper (0.33.0-4) unstable; urgency=medium
+
+  * Add version to default-jdk dependency, to explicit that we need java 6
+    support.
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 01 Sep 2015 10:09:44 +0200
+
+java-atk-wrapper (0.33.0-3) unstable; urgency=medium
+
+  * Revert to depending on default-jdk, but it'll have to support java 6 to
+    be able to build us (Closes: #788189).
+
+ -- Samuel Thibault <sthibault@debian.org>  Mon, 31 Aug 2015 20:56:38 +0200
+
+java-atk-wrapper (0.33.0-2) unstable; urgency=medium
+
+  * Depend on java 6, required by newer upstream release.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sat, 06 Jun 2015 18:50:46 +0200
+
+java-atk-wrapper (0.33.0-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #705511).
+    - Bump atk dependency accordingly.
+  * watch: Also track xz tarballs.
+  * patches/xprop: Fix xprop path.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sat, 06 Jun 2015 11:34:32 +0200
+
+java-atk-wrapper (0.30.5-1) unstable; urgency=low
+
+  * New upstream release.
+    - patches/autoconf-enable-javacflags.patch: Remove, merged upstream.
+    - patches/no-automake-werror: Remove, merged upstream.
+  * Bump Standards-Version to 3.9.6.
+    - control: Remove java2-runtime Depends alternative.
+    - control: Remove default-jre Depends.
+
+ -- Samuel Thibault <sthibault@debian.org>  Thu, 25 Sep 2014 20:32:50 +0200
+
+java-atk-wrapper (0.30.4-4) unstable; urgency=low
+
+  [ Samuel Thibault ]
+  * control: Fix description typos (Closes: #676863).
+  * Bump Standards-Version to 3.9.4 (no changes).
+  * patches/no-automake-werror: Remove -Werror from automake invocation
+    (Closes: #713320).
+
+  [ Jeremy Bicha ]
+  * Merge with Ubuntu (Closes: #708985)
+    - control: Depend on default-jre | java2-runtime
+    - Ensure backwards compatible bytecode is built (LP: #1049777):
+      + p/autoconf-enable-javacflags.patch: Update autoconf configuration
+        to support use of JAVACFLAGS during build process.
+      + rules: Supply JAVACFLAGS to ensure source/target is set to 1.5.
+
+ -- Samuel Thibault <sthibault@debian.org>  Mon, 19 Aug 2013 16:47:16 +0200
+
+java-atk-wrapper (0.30.4-3) unstable; urgency=low
+
+  * Document that accessibility is disabled by default in openjdk, how to
+    re-enable it, and that this is because it is not stable with non-threaded
+    applications (Closes: #701492).
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 16 Apr 2013 00:52:17 +0200
+
+java-atk-wrapper (0.30.4-2) unstable; urgency=low
+
+  * control:
+    - Bump Standards-Version to 3.9.3 (no changes).
+    - Fix JNI acronym case (Closes: #663268).
+    - Drop gconf-dev dependency.
+  * patches/gconf: New patch to disable gconf dependency, not actually used
+    (Closes: #665367).
+  * rules: Autoreconf.
+
+ -- Samuel Thibault <sthibault@debian.org>  Fri, 08 Jun 2012 22:54:14 +0200
+
+java-atk-wrapper (0.30.4-1) unstable; urgency=low
+
+  * Initial release (Closes: #537779)
+  * Thanks Luke Yelavich for working on it in Ubuntu!
+
+ -- Samuel Thibault <sthibault@debian.org>  Sat, 28 Jan 2012 19:11:39 +0100

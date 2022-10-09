@@ -1,0 +1,50 @@
+commit 43576f265a16de8f1cd16c8a09d0e6a6006cbe3c
+Author: Samuel Thibault <samuel.thibault@ens-lyon.org>
+Date:   Thu Aug 26 02:49:06 2021 +0200
+
+    Also use dbus to detect accessibility being enabled
+    
+    This is required if for some reason the AT_SPI_BUS property is not set.
+    That happens for instance if for some reason the dbus session bus (and thus
+    the at-spi bus) is reused between X sessions.
+
+diff --git a/wrapper/org/GNOME/Accessibility/AtkWrapper.java.in b/wrapper/org/GNOME/Accessibility/AtkWrapper.java.in
+index cb267fd..d91b985 100644
+--- a/wrapper/org/GNOME/Accessibility/AtkWrapper.java.in
++++ b/wrapper/org/GNOME/Accessibility/AtkWrapper.java.in
+@@ -32,6 +32,11 @@ import java.lang.management.*;
+ 
+ public class AtkWrapper {
+   static boolean accessibilityEnabled = false;
++  static void initAtk() {
++    System.loadLibrary("atk-wrapper");
++    if (AtkWrapper.initNativeLibrary())
++      accessibilityEnabled = true;
++  }
+   static {
+     try {
+       Process p = Runtime.getRuntime().exec("@XPROP@ -root");
+@@ -39,13 +44,20 @@ public class AtkWrapper {
+       String result;
+       while ((result = b.readLine()) != null) {
+         if (result.indexOf("AT_SPI_IOR") >= 0 || result.indexOf("AT_SPI_BUS") >= 0) {
+-          System.loadLibrary("atk-wrapper");
+-          if (AtkWrapper.initNativeLibrary())
+-            accessibilityEnabled = true;
++          initAtk();
+           break;
+         }
+       }
+ 
++      if (!accessibilityEnabled) {
++        p = Runtime.getRuntime().exec("dbus-send --session --dest=org.a11y.Bus --print-reply /org/a11y/bus org.a11y.Bus.GetAddress");
++        b = new BufferedReader(new InputStreamReader (p.getInputStream ()));
++        while ((b.readLine()) != null);
++        p.waitFor();
++        if (p.exitValue() == 0)
++          initAtk();
++      }
++
+       java.util.List<GarbageCollectorMXBean> gcbeans = ManagementFactory.getGarbageCollectorMXBeans();
+       for (GarbageCollectorMXBean gcbean : gcbeans) {
+ 	NotificationEmitter emitter = (NotificationEmitter) gcbean;

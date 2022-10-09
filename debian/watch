@@ -1,0 +1,5 @@
+version=4
+opts="filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)%@PACKAGE@-$1%" \
+  https://github.com/GNOME/java-atk-wrapper/releases \
+  (?:.*?/)?v?@ANY_VERSION@@ARCHIVE_EXT@
+http://ftp.gnome.org/pub/GNOME/sources/java-atk-wrapper/([\d.]*)/java-atk-wrapper-@ANY_VERSION@@ARCHIVE_EXT@

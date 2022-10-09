@@ -1,0 +1,18 @@
+commit 0d4f7ff12356d62b6bd26f0b19ae34beaab9266b
+Author: Samuel Thibault <samuel.thibault@ens-lyon.org>
+Date:   Wed Mar 3 20:46:21 2021 +0100
+
+    Only enable -Werror in upstream development
+
+diff --git a/configure.ac b/configure.ac
+index 995d629..75baacd 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -123,6 +123,7 @@ else
+ fi
+ AC_SUBST(JAW_CFLAGS)
+ 
++AX_IS_RELEASE(dash-version)
+ AX_COMPILER_FLAGS()
+ case "$WARN_CFLAGS" in
+     *-Werror*)
